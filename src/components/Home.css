@@ -1,0 +1,13 @@
+
+.home a {
+  display: block;
+  height: 25vh;
+  line-height: 25vh;
+  background-color: skyblue;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  border: 1px solid slategrey;
+} 
+
