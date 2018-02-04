@@ -2,15 +2,14 @@ import React from 'react';
 import './Workouts.css';
 
 const Workouts = props => {
-  if (Object.keys(props.workouts).length > 0) {
-    console.log(props);
+  if (props.workouts) {
     return (
       <div className="workouts-container">
-        {Object.values(props.workouts).map(work => {
+        {props.workouts.map(workout => {
           return (
-            <a href="#" key={work.id}>
-              {work.name}
-            </a>
+            <button key={workout.id} onClick={selectWorkout(workout)}>
+              {workout.name}
+            </button>
           );
         })}
       </div>
@@ -21,7 +20,7 @@ const Workouts = props => {
         <h1> Add New Workout </h1>
       </div>
     );
-  }
-};
+  };
+}
 
 export default Workouts;

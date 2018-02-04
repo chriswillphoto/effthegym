@@ -13,6 +13,9 @@ const mapDispatchToProps = dispatch => {
     onAddClick: workout => {
       console.log(workout);
     },
+    selectWorkout: workout => {
+      console.log(workout)
+    }
   };
 };
 
