@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {addWorkout} from '../actions';
+import {addWorkout, selectWorkout} from '../actions';
 import Workouts from '../components/Workouts';
 
 const mapStateToProps = state => {
@@ -11,10 +11,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAddClick: workout => {
-      console.log(workout);
+    //  console.log(workout);
     },
     selectWorkout: workout => {
-      console.log(workout)
+      dispatch(selectWorkout(workout))
     }
   };
 };

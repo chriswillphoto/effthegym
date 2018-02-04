@@ -11,3 +11,10 @@ export const addExerciseToWorkout = exercise => {
     exercise,
   };
 };
+
+export const selectWorkout = workout => {
+  return {
+    type: 'SELECT_WORKOUT',
+    workout,
+  };
+};
