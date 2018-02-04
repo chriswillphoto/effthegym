@@ -1,17 +1,18 @@
 import React from 'react';
 import './Workouts.css';
+import _ from 'underscore';
+
 
 const Workouts = props => {
-  if (props.workouts) {
+  if (Object.keys(props.workouts).length > 0) {
+  console.log(props)
     return (
       <div className="workouts-container">
-        {props.workouts.map(workout => {
-          return (
-            <a href="#" key={workout.id}>
-              {workout.name}
-            </a>
-          );
-        })}
+      {
+        Object.values(props.workouts).map( work => {
+          return <a href="#" key={work.id}>{work.name}</a>
+        }  )
+      } 
       </div>
     );
   } else {
