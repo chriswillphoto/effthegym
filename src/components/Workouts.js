@@ -1,6 +1,5 @@
 import React from 'react';
 import './Workouts.css';
-import _ from 'underscore';
 
 const Workouts = props => {
   if (Object.keys(props.workouts).length > 0) {
