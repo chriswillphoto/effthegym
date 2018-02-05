@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAddClick: workout => {
-    //  console.log(workout);
+     console.log(workout) 
     },
     selectWorkout: workout => {
       dispatch(selectWorkout(workout))

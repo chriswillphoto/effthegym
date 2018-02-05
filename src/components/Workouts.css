@@ -1,0 +1,13 @@
+.nav {
+  height: 30px;
+  line-height: 30px;
+  background-color: rgb(40,40,40);
+}
+
+.nav a {
+  color: white;
+  margin-left: 10px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-shadow: inset 0 0 10px rgb(80, 80, 80); 
+}

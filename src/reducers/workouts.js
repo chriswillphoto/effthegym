@@ -10,8 +10,6 @@ const workouts = (state = {}, action) => {
         exercises: [...state[target].exercises, action.exercise.info],
       };
       return {...state};
-    case 'SELECT_WORKOUT':
-      return {...state, selected: action.workout}
     default:
       return state;
   }

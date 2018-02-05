@@ -1,4 +1,5 @@
 import React from 'react';
+import AddWorkout from './AddWorkout'
 import './Workouts.css';
 
 const Workouts = props => {
@@ -7,17 +8,19 @@ const Workouts = props => {
   const listRender = function(prop) {
     return Object.values(prop).map(workout => {
       return (
-        <button key={workout.id} onClick={() => props.selectWorkout(workout)}>
+        <div key={workout.id} onClick={() => props.selectWorkout(workout)}>
           {workout.name}
-        </button>
+        </div>
       );
     });
   };
 
   return (
     <div className="workouts-container">
+      <div className="nav"><a href="/#/">&#60; Back</a></div>
       {workoutlist.length > 0 && listRender(props.workouts)}
       <h1> Add New Workout </h1>
+      <AddWorkout addWorkout={() => props.onAddClick()} />
     </div>
   );
 };
