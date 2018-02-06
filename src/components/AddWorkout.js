@@ -6,7 +6,7 @@ import uniqid from 'uniqid'
 
 let AddWorkout = ({dispatch}) => {
   return(
-    <form onSubmit={(e) => {
+    <form className="workout-form" onSubmit={(e) => {
       e.preventDefault()
       dispatch(addWorkout( {id: uniqid(), name: e.target.elements['name'].value, exercises: []   }  ))
       e.target.elements['name'].value = ""
