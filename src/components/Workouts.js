@@ -8,8 +8,19 @@ const Workouts = props => {
   const listRender = function(prop) {
     return Object.values(prop).map(workout => {
       return (
-        <div key={workout.id} onClick={() => props.selectWorkout(workout.id)}>
-          <h4>{workout.name}</h4>
+        <div
+          className="workout-container"
+          key={workout.id}
+          onClick={() => props.selectWorkout(workout.id)}>
+          <div className="workout-buttons">
+            <h4>{workout.name}</h4>
+            <a href="#">Go</a>
+            <a
+              href="/#/workout/edit"
+              onClick={() => props.selectWorkout(workout.id)}>
+              Edit
+            </a>
+          </div>
           {workout.exercises.map(exercise => {
             return (
               <div key={exercise.id} className="exercise-container">
@@ -18,11 +29,6 @@ const Workouts = props => {
               </div>
             );
           })}
-          <a
-            href="/#/workout/edit"
-            onClick={() => props.selectWorkout(workout.id)}>
-            Edit
-          </a>
         </div>
       );
     });
