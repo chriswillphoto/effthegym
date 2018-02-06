@@ -30,12 +30,18 @@ class Edit extends Component {
     });
   }
 
+
+  addExercise(e) {
+    e.preventDefault()
+    console.log(e.target.elements)
+  }
+
   addForm(exercise) {
     return (
-      <form className="addform">
+      <form className="addform" onSubmit={e => this.addExercise(e)}>
         <h4>{exercise.info}</h4>
-        <input type="text" name="sets" />
-        <input type="text" name="reps" />
+        <input type="number" name="sets" placeholder="sets" required/>
+        <input type="number" name="reps" placeholder="reps" required/>
         <button>Go</button>
       </form>
     );
