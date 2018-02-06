@@ -1,4 +1,4 @@
-const selected = (state = {}, action) => {
+const selected = (state = "", action) => {
   switch (action.type) {
     case 'SELECT_WORKOUT':
       return action.workout;

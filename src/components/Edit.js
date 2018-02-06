@@ -1,26 +1,61 @@
-import React from 'react';
-import exercises from '../exercises.json';
+import React, {PureComponent as Component} from 'react';
+import {exercises} from '../exercises.json';
+import Nav from './Nav';
 
-const Edit = props => {
-  const exList = () => {
-    return Array.from(exercises.exercises).map(exercise => {
+class Edit extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showAddForm: false,
+      selected: null,
+    };
+  }
+
+  exList() {
+    return Array.from(exercises).map(exercise => {
       return (
         <div
-          onClick={() => props.addExercise({
-            workout_id: props.workout.id,
-            info: exercise,
-          })}
-        >exercise.info</div>
+          className="edit-exercise"
+          key={exercise.id}
+          onClick={() =>
+            this.setState({
+              selected: exercise,
+              showAddForm: true,
+            })
+          }>
+          {exercise.info}
+        </div>
       );
     });
-  };
-  console.log(exercises.exercises)
-  return (
-    <div className="editor">
-    <h4>{props.workout.name}</h4>
-    {exList()}
-    </div>
-  );
-};
+  }
+
+  addForm(exercise) {
+    return (
+      <form className="addform">
+        <h4>{exercise.info}</h4>
+        <input type="text" name="sets" />
+        <input type="text" name="reps" />
+        <button>Go</button>
+      </form>
+    );
+  }
+
+  render() {
+    return (
+      <div className="editor">
+        <Nav address="/#/workouts" />
+        {this.state.showAddForm && this.addForm(this.state.selected)}
+        <h4>{this.props.workout}</h4>
+        {this.exList()}
+      </div>
+    );
+  }
+}
 
 export default Edit;
+
+// this.props.addExercise({
+//              workout_id: this.props.workout, // props.workout is id of currently selected workout
+//              info: exercise,
+//            })
