@@ -30,15 +30,30 @@ class Edit extends Component {
     });
   }
 
+  resetfields(e){
+    e.target.elements['sets'].value = ""
+    e.target.elements['reps'].value = ""
+    this.setState({
+      showAddForm: false,
+      selected: null
+    })
+  }
 
-  addExercise(e) {
+  addExercise(e, exercise) {
     e.preventDefault()
-    console.log(e.target.elements)
+    let exObj = {...exercise}
+    exObj.sets = e.target.elements['sets'].value
+    exObj.reps = e.target.elements['reps'].value
+    this.resetfields(e)
+    this.props.addExercise({
+      workout_id: this.props.workout,
+      info: exObj
+    })
   }
 
   addForm(exercise) {
     return (
-      <form className="addform" onSubmit={e => this.addExercise(e)}>
+      <form className="addform" onSubmit={e => this.addExercise(e, exercise)}>
         <h4>{exercise.info}</h4>
         <input type="number" name="sets" placeholder="sets" required/>
         <input type="number" name="reps" placeholder="reps" required/>
@@ -52,7 +67,6 @@ class Edit extends Component {
       <div className="editor">
         <Nav address="/#/workouts" />
         {this.state.showAddForm && this.addForm(this.state.selected)}
-        <h4>{this.props.workout}</h4>
         {this.exList()}
       </div>
     );

@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Edit from '../components/Edit';
-import {addExerciseToWorkout} from '../actions'
+import {addExerciseToWorkout} from '../actions';
+
 const mapStateToProps = state => {
   return {
     workout: state.selected,
