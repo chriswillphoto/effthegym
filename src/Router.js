@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import Home from './components/Home';
 import WorkoutSelect from './containers/WorkoutSelect';
 import WorkoutEditor from './containers/WorkoutEditor';
+import WorkoutRunner from './containers/WorkoutRunner';
 
 const Routes = ({store}) => (
   <Provider store={store}>
@@ -13,6 +14,7 @@ const Routes = ({store}) => (
           <Route exact path="/" component={Home} />
           <Route exact path="/workouts" component={WorkoutSelect} />
           <Route exact path="/workout/edit" component={WorkoutEditor} />
+          <Route exact path="/workout/run" component={WorkoutRunner} />
         </Switch>
       </div>
     </Router>
