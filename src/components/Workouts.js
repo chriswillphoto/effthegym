@@ -14,7 +14,11 @@ const Workouts = props => {
           onClick={() => props.selectWorkout(workout.id)}>
           <div className="workout-buttons">
             <h4>{workout.name}</h4>
-            <a href="#">Go</a>
+            <a
+              href="/#/workout/run"
+              onClick={() => props.selectWorkout(workout.id)}>
+              Go
+            </a>
             <a
               href="/#/workout/edit"
               onClick={() => props.selectWorkout(workout.id)}>
@@ -26,6 +30,7 @@ const Workouts = props => {
               <div key={exercise.id} className="exercise-container">
                 <h4>{exercise.info}</h4>
                 <h6>sets: {exercise.sets}</h6>
+                <h6>reps: {exercise.reps}</h6>
               </div>
             );
           })}
