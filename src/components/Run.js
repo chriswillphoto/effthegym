@@ -12,9 +12,22 @@ class Run extends Component {
 
   done() {
     const newWorkout = this.state.workout.exercises.slice(1);
-    this.setState({
-      workout: {...this.state.workout, exercises: newWorkout},
-    });
+    const newSet = parseInt(this.state.workout.exercises[0].sets - 1);
+    if (newSet === 0) {
+      this.setState({
+        workout: {...this.state.workout, exercises: newWorkout},
+      });
+    } else {
+      this.setState({
+        workout: {
+          ...this.state.workout,
+          exercises: [
+            {...this.state.workout.exercises[0], sets: newSet},
+            ...this.state.workout.exercises.slice(1),
+          ],
+        },
+      });
+    }
   }
 
   render() {
@@ -22,8 +35,15 @@ class Run extends Component {
       <div>
         <Nav address="/#/workouts" />
         <h1>Run Coming Soon</h1>
-        <h4>{this.state.workout.exercises[0].info}</h4>
-        <button onClick={() => this.done()}>Done</button>
+        {this.state.workout.exercises[0] ? (
+          <div>
+            <h4>{this.state.workout.exercises[0].info}</h4>
+            <h3>sets remaining: {this.state.workout.exercises[0].sets} </h3>
+            <button onClick={() => this.done()}>Done</button>
+          </div>
+        ) : (
+          <h4> You have finished your workout </h4>
+        )}
       </div>
     );
   }
