@@ -1,6 +1,7 @@
 import React, {PureComponent as Component} from 'react';
 import {exercises} from '../exercises.json';
 import Nav from './Nav';
+import './Edit.css';
 
 class Edit extends Component {
   constructor(props) {
@@ -23,40 +24,51 @@ class Edit extends Component {
               selected: exercise,
               showAddForm: true,
             })
-          }>
+          }
+        >
           {exercise.info}
         </div>
       );
     });
   }
 
-  resetfields(e){
-    e.target.elements['sets'].value = ""
-    e.target.elements['reps'].value = ""
+  resetfields(e) {
+    e.target.elements['sets'].value = '';
+    e.target.elements['reps'].value = '';
     this.setState({
       showAddForm: false,
-      selected: null
-    })
+      selected: null,
+    });
   }
 
   addExercise(e, exercise) {
-    e.preventDefault()
-    let exObj = {...exercise}
-    exObj.sets = parseInt(e.target.elements['sets'].value)
-    exObj.reps = parseInt(e.target.elements['reps'].value)
-    this.resetfields(e)
+    e.preventDefault();
+    let exObj = {...exercise};
+    exObj.sets = parseInt(e.target.elements['sets'].value, 10);
+    exObj.reps = parseInt(e.target.elements['reps'].value, 10);
+    this.resetfields(e);
     this.props.addExercise({
       workout_id: this.props.workout,
-      info: exObj
-    })
+      info: exObj,
+    });
   }
 
   addForm(exercise) {
     return (
       <form className="addform" onSubmit={e => this.addExercise(e, exercise)}>
         <h4>{exercise.info}</h4>
-        <input type="number" name="sets" placeholder="sets" required/>
-        <input type="number" name="reps" placeholder="reps" required/>
+        <input type="number" name="sets" placeholder="sets" required />
+        <input type="number" name="reps" placeholder="reps" required />
+        {this.state.extype === 'time' ? (
+          <button type="button" value="time" onClick={() => this.setState({extype: 'sets'})}>
+            For Time
+          </button>
+        ) : (
+          <button type="button" value="sets" onClick={() => this.setState({extype: 'time'})}>
+            For Sets
+          </button>
+        )}
+
         <button>Go</button>
       </form>
     );
@@ -64,10 +76,19 @@ class Edit extends Component {
 
   render() {
     return (
-      <div className="editor">
-        <Nav address="/#/workouts" />
+      <div className={'editor '}>
+        <div
+          className={'editor-list ' + (this.state.showAddForm ? 'formup' : '')}
+          onClick={() => {
+            if (this.state.showAddForm) {
+              this.setState({showAddForm: false});
+            }
+          }}
+        >
+          <Nav address="/#/workouts" />
+          {this.exList()}
+        </div>
         {this.state.showAddForm && this.addForm(this.state.selected)}
-        {this.exList()}
       </div>
     );
   }
