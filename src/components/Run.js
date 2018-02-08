@@ -12,7 +12,7 @@ class Run extends Component {
 
   done() {
     const newWorkout = this.state.workout.exercises.slice(1);
-    const newSet = parseInt(this.state.workout.exercises[0].sets - 1);
+    const newSet = this.state.workout.exercises[0].sets - 1;
     if (newSet === 0) {
       this.setState({
         workout: {...this.state.workout, exercises: newWorkout},

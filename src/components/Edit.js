@@ -42,8 +42,8 @@ class Edit extends Component {
   addExercise(e, exercise) {
     e.preventDefault()
     let exObj = {...exercise}
-    exObj.sets = e.target.elements['sets'].value
-    exObj.reps = e.target.elements['reps'].value
+    exObj.sets = parseInt(e.target.elements['sets'].value)
+    exObj.reps = parseInt(e.target.elements['reps'].value)
     this.resetfields(e)
     this.props.addExercise({
       workout_id: this.props.workout,
