@@ -11,17 +11,14 @@ const Workouts = props => {
         <div
           className="workout-container"
           key={workout.id}
-          onClick={() => props.selectWorkout(workout.id)}>
+          onClick={() => props.selectWorkout(workout.id)}
+        >
           <div className="workout-buttons">
             <h4>{workout.name}</h4>
-            <a
-              href="/#/workout/run"
-              onClick={() => props.selectWorkout(workout.id)}>
+            <a href="/#/workout/run" onClick={() => props.selectWorkout(workout.id)}>
               Go
             </a>
-            <a
-              href="/#/workout/edit"
-              onClick={() => props.selectWorkout(workout.id)}>
+            <a href="/#/workout/edit" onClick={() => props.selectWorkout(workout.id)}>
               Edit
             </a>
           </div>
