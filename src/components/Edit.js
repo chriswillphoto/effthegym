@@ -22,19 +22,24 @@ class Edit extends Component {
           onClick={() =>
             this.setState({
               selected: exercise,
+              extype: exercise.type,
               showAddForm: true,
             })
           }
         >
-          {exercise.info}
+          <h3>{exercise.name}</h3>
         </div>
       );
     });
   }
 
   resetfields(e) {
-    e.target.elements['sets'].value = '';
-    e.target.elements['reps'].value = '';
+    if (this.state.extype === 'sets') {
+      e.target.elements['sets'].value = '';
+      e.target.elements['reps'].value = '';
+    } else {
+      e.target.elements['time'].value = '';
+    }
     this.setState({
       showAddForm: false,
       selected: null,
@@ -44,8 +49,12 @@ class Edit extends Component {
   addExercise(e, exercise) {
     e.preventDefault();
     let exObj = {...exercise};
-    exObj.sets = parseInt(e.target.elements['sets'].value, 10);
-    exObj.reps = parseInt(e.target.elements['reps'].value, 10);
+    if (this.state.extype === 'sets') {
+      exObj.sets = parseInt(e.target.elements['sets'].value, 10);
+      exObj.reps = parseInt(e.target.elements['reps'].value, 10);
+    } else {
+      exObj.time = parseInt(e.target.elements['time'].value, 10);
+    }
     this.resetfields(e);
     this.props.addExercise({
       workout_id: this.props.workout,
@@ -56,17 +65,22 @@ class Edit extends Component {
   addForm(exercise) {
     return (
       <form className="addform" onSubmit={e => this.addExercise(e, exercise)}>
-        <h4>{exercise.info}</h4>
-        <input type="number" name="sets" placeholder="sets" required />
-        <input type="number" name="reps" placeholder="reps" required />
+        <h4>{exercise.name}</h4>
         {this.state.extype === 'time' ? (
-          <button type="button" value="time" onClick={() => this.setState({extype: 'sets'})}>
-            For Time
-          </button>
+          <div className="time-form">
+            <button type="button" value="time" onClick={() => this.setState({extype: 'sets'})}>
+              For Time
+            </button>
+            <input type="number" name="time" placeholder="seconds" required />
+          </div>
         ) : (
-          <button type="button" value="sets" onClick={() => this.setState({extype: 'time'})}>
-            For Sets
-          </button>
+          <div className="sets-form">
+            <button type="button" value="sets" onClick={() => this.setState({extype: 'time'})}>
+              For Sets
+            </button>
+            <input type="number" name="sets" placeholder="sets" required />
+            <input type="number" name="reps" placeholder="reps" required />
+          </div>
         )}
 
         <button>Go</button>

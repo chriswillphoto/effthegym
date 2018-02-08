@@ -2,11 +2,13 @@
   "exercises": [
     {
       "id": 1,
-      "info": "pushups"
+      "name": "pushups",
+      "type": "sets"
     },
     {
       "id": 2,
-      "info": "squats"
+      "name": "squats",
+      "type": "sets"
     }
   ]
 }

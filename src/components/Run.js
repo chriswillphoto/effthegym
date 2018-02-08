@@ -1,5 +1,6 @@
 import React, {PureComponent as Component} from 'react';
 import Nav from './Nav';
+import ReactCountdownClock from 'react-countdown-clock';
 
 class Run extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Run extends Component {
     };
   }
 
-  done() {
+  doneSets() {
     const newWorkout = this.state.workout.exercises.slice(1);
     const newSet = this.state.workout.exercises[0].sets - 1;
     if (newSet === 0) {
@@ -31,21 +32,29 @@ class Run extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Nav address="/#/workouts" />
-        <h1>Run Coming Soon</h1>
-        {this.state.workout.exercises[0] ? (
-          <div>
-            <h4>{this.state.workout.exercises[0].info}</h4>
-            <h3>sets remaining: {this.state.workout.exercises[0].sets} </h3>
-            <button onClick={() => this.done()}>Done</button>
-          </div>
-        ) : (
-          <h4> You have finished your workout </h4>
-        )}
-      </div>
-    );
+    if (this.state.workout.exercises[0].sets) {
+      return (
+        <div>
+          <Nav address="/#/workouts" />
+          <h1>Run Coming Soon</h1>
+          {this.state.workout.exercises[0] ? (
+            <div>
+              <h4>{this.state.workout.exercises[0].info}</h4>
+              <h3>sets remaining: {this.state.workout.exercises[0].sets} </h3>
+              <button onClick={() => this.doneSets()}>Done</button>
+            </div>
+          ) : (
+            <h4> You have finished your workout </h4>
+          )}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <ReactCountdownClock seconds={this.state.workout.exercises[0].time} />
+        </div>
+      );
+    }
   }
 }
 
