@@ -1,13 +1,47 @@
 {
   "exercises": [
     {
-      "id": 1,
-      "name": "pushups",
+      "name": "Bench Press",
       "type": "sets"
     },
     {
-      "id": 2,
-      "name": "squats",
+      "name": "Back Squat",
+      "type": "sets"
+    },
+    {
+      "name": "Conventional Deadlift",
+      "type": "sets"
+    },
+    {
+      "name": "Sumo Deadlift",
+      "type": "sets"
+    },
+    {
+      "name": "Incline Bench",
+      "type": "sets"
+    },
+    {
+      "name": "Decline Bench",
+      "type": "sets"
+    },
+    {
+      "name": "Front Squat",
+      "type": "sets"
+    },
+    {
+      "name": "Chin Ups",
+      "type": "sets"
+    },
+    {
+      "name": "Chest Fly",
+      "type": "sets"
+    },
+    {
+      "name": "Cable Crossover",
+      "type": "sets"
+    },
+    {
+      "name": "Dips",
       "type": "sets"
     }
   ]
