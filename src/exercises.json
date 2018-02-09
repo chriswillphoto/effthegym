@@ -43,6 +43,10 @@
     {
       "name": "Dips",
       "type": "sets"
+    },
+    {
+      "name": "Running",
+      "type": "time"
     }
   ]
 }

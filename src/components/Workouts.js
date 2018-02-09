@@ -2,7 +2,10 @@ import React from 'react';
 import AddWorkout from './AddWorkout';
 import './Workouts.css';
 import Nav from './Nav';
+import ExerciseInfo from './ExerciseInfo'
 import uniqid from 'uniqid'
+
+
 
 const Workouts = props => {
   const workoutlist = Object.keys(props.workouts);
@@ -26,10 +29,8 @@ const Workouts = props => {
           {workout.exercises.map(exercise => {
             return (
               <div key={uniqid()} className="exercise-container">
-                <h4>{exercise.info}</h4>
-                <h6>sets: {exercise.sets}</h6>
-                <h6>reps: {exercise.reps}</h6>
-              </div>
+                <ExerciseInfo exercise={exercise}/>
+              </div>  
             );
           })}
         </div>

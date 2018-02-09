@@ -8,6 +8,7 @@ class Run extends Component {
 
     this.state = {
       workout: this.props.workout,
+      pauseTimer: true,
     };
   }
 
@@ -56,6 +57,7 @@ class Run extends Component {
           <ReactCountdownClock
             seconds={this.state.workout.exercises[0].time}
             onComplete={() => this.doneTime()}
+            paused={this.state.pauseTimer}
           />
         </div>
       );
