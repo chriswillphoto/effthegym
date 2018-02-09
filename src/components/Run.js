@@ -52,6 +52,7 @@ class Run extends Component {
     } else if (this.state.workout.exercises.length > 0 && this.state.workout.exercises[0].time) {
       return (
         <div>
+          <Nav address="/#/workouts" />
           <ReactCountdownClock
             seconds={this.state.workout.exercises[0].time}
             onComplete={() => this.doneTime()}
@@ -59,7 +60,12 @@ class Run extends Component {
         </div>
       );
     } else {
-      return <h4 className="complete">You have finished your workout!</h4>;
+      return (
+        <div>
+          <Nav address="/#/workouts" />
+          <h4 className="complete">You have finished your workout!</h4>
+        </div>
+      );
     }
   }
 }
