@@ -4,7 +4,7 @@
 }
 
 .editor-list {
-  height: calc(100vh - 30px);
+  min-height: calc(100vh - 30px);
   background-color: rgb(240, 240, 240);
 }
 .editor-list.formup {
@@ -31,4 +31,28 @@
 .addform h4 {
   display: inline-block;
   color: white;
+}
+
+.edit-exercise {
+  /* text-align: center; */
+  width: 400px;
+  margin: 0 auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.edit-exercise:hover {
+  background-color: slategray;
+}
+
+.edit-exercise h3,
+.edit-exercise button {
+  display: inline-block;
+  margin: 20px 10px;
+}
+
+.edit-exercise button {
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
 }

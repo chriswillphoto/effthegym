@@ -23,7 +23,7 @@ const Workouts = props => {
               Go
             </a>
             <a href="/#/workout/edit" onClick={() => props.selectWorkout(workout.id)}>
-              Edit
+             Add Exercises to this Workout 
             </a>
           </div>
           {workout.exercises.map(exercise => {

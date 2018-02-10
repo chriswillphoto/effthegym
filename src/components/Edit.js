@@ -28,6 +28,13 @@ class Edit extends Component {
           }
         >
           <h3>{exercise.name}</h3>
+          <button onClick={
+            () => this.setState({
+              selected: exercise,
+              extype: exercise.type,
+              showAddForm: true
+            })
+          } >Add to Workout</button>
         </div>
       );
     });
