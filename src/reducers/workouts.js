@@ -12,12 +12,10 @@ const workouts = (state = {}, action) => {
       return { ...state };
     case "DELETE_EXERCISE_FROM_WORKOUT":
       let delTarget = [action.exercise.workout_id];
-      console.log(action)
       let newEx = state[delTarget].exercises.filter(exercise => {
         return exercise !== action.exercise
       });
 
-      console.log(newEx)
       state[delTarget] = {
         ...state[delTarget],
         exercises: newEx
