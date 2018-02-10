@@ -1,7 +1,7 @@
-import React, {PureComponent as Component} from 'react';
-import {exercises} from '../exercises.json';
-import Nav from './Nav';
-import './Edit.css';
+import React, { PureComponent as Component } from "react";
+import { exercises } from "../exercises.json";
+import Nav from "./Nav";
+import "./Edit.css";
 
 class Edit extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Edit extends Component {
 
     this.state = {
       showAddForm: false,
-      selected: null,
+      selected: null
     };
   }
 
@@ -23,7 +23,7 @@ class Edit extends Component {
             this.setState({
               selected: exercise,
               extype: exercise.type,
-              showAddForm: true,
+              showAddForm: true
             })
           }
         >
@@ -34,31 +34,31 @@ class Edit extends Component {
   }
 
   resetfields(e) {
-    if (this.state.extype === 'sets') {
-      e.target.elements['sets'].value = '';
-      e.target.elements['reps'].value = '';
+    if (this.state.extype === "sets") {
+      e.target.elements["sets"].value = "";
+      e.target.elements["reps"].value = "";
     } else {
-      e.target.elements['time'].value = '';
+      e.target.elements["time"].value = "";
     }
     this.setState({
       showAddForm: false,
-      selected: null,
+      selected: null
     });
   }
 
   addExercise(e, exercise) {
     e.preventDefault();
-    let exObj = {...exercise};
-    if (this.state.extype === 'sets') {
-      exObj.sets = parseInt(e.target.elements['sets'].value, 10);
-      exObj.reps = parseInt(e.target.elements['reps'].value, 10);
+    let exObj = { ...exercise };
+    if (this.state.extype === "sets") {
+      exObj.sets = parseInt(e.target.elements["sets"].value, 10);
+      exObj.reps = parseInt(e.target.elements["reps"].value, 10);
     } else {
-      exObj.time = parseInt(e.target.elements['time'].value, 10);
+      exObj.time = parseInt(e.target.elements["time"].value, 10);
     }
     this.resetfields(e);
     this.props.addExercise({
       workout_id: this.props.workout,
-      info: exObj,
+      info: exObj
     });
   }
 
@@ -66,16 +66,16 @@ class Edit extends Component {
     return (
       <form className="addform" onSubmit={e => this.addExercise(e, exercise)}>
         <h4>{exercise.name}</h4>
-        {this.state.extype === 'time' ? (
+        {this.state.extype === "time" ? (
           <div className="time-form">
-            <button type="button" value="time" onClick={() => this.setState({extype: 'sets'})}>
+            <button type="button" value="time" onClick={() => this.setState({ extype: "sets" })}>
               For Time
             </button>
             <input type="number" name="time" placeholder="seconds" required />
           </div>
         ) : (
           <div className="sets-form">
-            <button type="button" value="sets" onClick={() => this.setState({extype: 'time'})}>
+            <button type="button" value="sets" onClick={() => this.setState({ extype: "time" })}>
               For Sets
             </button>
             <input type="number" name="sets" placeholder="sets" required />
@@ -83,19 +83,19 @@ class Edit extends Component {
           </div>
         )}
 
-        <button>Go</button>
+        <button>Add</button>
       </form>
     );
   }
 
   render() {
     return (
-      <div className={'editor '}>
+      <div className={"editor "}>
         <div
-          className={'editor-list ' + (this.state.showAddForm ? 'formup' : '')}
+          className={"editor-list " + (this.state.showAddForm ? "formup" : "")}
           onClick={() => {
             if (this.state.showAddForm) {
-              this.setState({showAddForm: false});
+              this.setState({ showAddForm: false });
             }
           }}
         >
@@ -109,8 +109,3 @@ class Edit extends Component {
 }
 
 export default Edit;
-
-// this.props.addExercise({
-//              workout_id: this.props.workout, // props.workout is id of currently selected workout
-//              info: exercise,
-//            })
