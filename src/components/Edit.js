@@ -1,5 +1,6 @@
 import React, { PureComponent as Component } from "react";
-import { exercises } from "../exercises.json";
+// import { exercises } from "../exercises.json";
+import firebase from "../firebase";
 import Nav from "./Nav";
 import "./Edit.css";
 
@@ -9,12 +10,31 @@ class Edit extends Component {
 
     this.state = {
       showAddForm: false,
-      selected: null
+      selected: null,
+      exercises: []
     };
   }
 
+  componentDidMount() {
+    const itemsRef = firebase.database().ref("exercises");
+    itemsRef.on("value", snapshot => {
+      let items = snapshot.val();
+      let newState = [];
+      for (let item in items) {
+        newState.push({
+          id: item,
+          name: items[item].name,
+          type: items[item].type
+        });
+      }
+      this.setState({
+        exercises: newState
+      });
+    });
+  }
+
   exList() {
-    return Array.from(exercises).map(exercise => {
+    return Array.from(this.state.exercises).map(exercise => {
       return (
         <div
           className="edit-exercise"
@@ -28,13 +48,17 @@ class Edit extends Component {
           }
         >
           <h3>{exercise.name}</h3>
-          <button onClick={
-            () => this.setState({
-              selected: exercise,
-              extype: exercise.type,
-              showAddForm: true
-            })
-          } >Add to Workout</button>
+          <button
+            onClick={() =>
+              this.setState({
+                selected: exercise,
+                extype: exercise.type,
+                showAddForm: true
+              })
+            }
+          >
+            Add to Workout
+          </button>
         </div>
       );
     });
