@@ -1,11 +1,11 @@
-import {connect} from 'react-redux';
-import {selectWorkout} from '../actions';
-import Workouts from '../components/Workouts';
+import { connect } from "react-redux";
+import { selectWorkout, deleteExerciseFromWorkout } from "../actions";
+import Workouts from "../components/Workouts";
 
 const mapStateToProps = state => {
   return {
     workouts: state.workouts,
-    selected: state.selected,
+    selected: state.selected
   };
 };
 
@@ -17,6 +17,11 @@ const mapDispatchToProps = dispatch => {
     selectWorkout: workout => {
       dispatch(selectWorkout(workout));
     },
+    delExercise: (exercise, id) => {
+      exercise.workout_id = id;
+      // console.log(exercise, id)
+      dispatch(deleteExerciseFromWorkout(exercise));
+    }
   };
 };
 

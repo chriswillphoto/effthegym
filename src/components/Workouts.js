@@ -29,7 +29,7 @@ const Workouts = props => {
           {workout.exercises.map(exercise => {
             return (
               <div key={uniqid()} className="exercise-container">
-                <ExerciseInfo exercise={exercise}/>
+                <ExerciseInfo delete={() => props.delExercise(exercise, workout.id)} exercise={exercise}/>
               </div>  
             );
           })}

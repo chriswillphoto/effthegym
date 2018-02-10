@@ -1,10 +1,10 @@
-import {connect} from 'react-redux';
-import Edit from '../components/Edit';
-import {addExerciseToWorkout} from '../actions';
+import { connect } from "react-redux";
+import Edit from "../components/Edit";
+import { addExerciseToWorkout } from "../actions";
 
 const mapStateToProps = state => {
   return {
-    workout: state.selected,
+    workout: state.selected
   };
 };
 
@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => {
   return {
     addExercise: exercise => {
       dispatch(addExerciseToWorkout(exercise));
-    },
+    }
   };
 };
 

@@ -135,7 +135,7 @@ class Edit extends Component {
         </div>
         {this.state.showAddForm && this.addForm(this.state.selected)}
       </div>
-    );
+
   }
 }
 

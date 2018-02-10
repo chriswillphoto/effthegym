@@ -18,3 +18,10 @@ export const selectWorkout = workout => {
     workout,
   };
 };
+
+export const deleteExerciseFromWorkout = exercise => {
+  return {
+    type: "DELETE_EXERCISE_FROM_WORKOUT",
+    exercise
+  }
+}
