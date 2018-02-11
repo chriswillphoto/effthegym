@@ -42,7 +42,6 @@ const Workouts = props => {
     <div className="workouts-container">
       <Nav address="/#/" />
       {workoutlist.length > 0 && listRender(props.workouts)}
-      <h1> Add New Workout </h1>
       <AddWorkout addWorkout={() => props.onAddClick()} />
     </div>
   );

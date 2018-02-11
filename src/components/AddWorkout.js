@@ -11,6 +11,7 @@ let AddWorkout = ({dispatch}) => {
       dispatch(addWorkout( {id: uniqid(), name: e.target.elements['name'].value, exercises: []   }  ))
       e.target.elements['name'].value = ""
     }}>
+      <h5>Add New Workout</h5>
       <input name="name" type="text"  placeholder="Workout Name"/>
       <button>Add</button> 
     </form>
