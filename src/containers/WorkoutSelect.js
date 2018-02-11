@@ -11,6 +11,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    deleteWorkout: workout => {
+      dispatch(deleteWorkout(workout))
+    },
     selectWorkout: workout => {
       dispatch(selectWorkout(workout));
     },
