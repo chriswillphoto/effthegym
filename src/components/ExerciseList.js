@@ -1,7 +1,7 @@
 import React, { PureComponent as Component } from "react";
 import Nav from "./Nav";
 import firebase from "../firebase";
-import uniqid from 'uniqid'
+import uniqid from "uniqid";
 
 export default class ExerciseList extends Component {
   constructor(props) {
@@ -29,21 +29,17 @@ export default class ExerciseList extends Component {
     });
   }
 
-  populateList(){
+  populateList() {
     return this.state.exercises.map(exercise => {
-      return(
-        <li key={uniqid()} >{exercise.name}</li>
-      )
-    })
+      return <li key={uniqid()}>{exercise.name}</li>;
+    });
   }
 
   render() {
     return (
       <div>
         <Nav address="/#/" />
-        <ul>
-          {this.populateList()}
-        </ul>
+        <ul>{this.populateList()}</ul>
       </div>
     );
   }
