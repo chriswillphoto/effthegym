@@ -1,25 +1,35 @@
 .workout-form {
-  position: absolute;
-  bottom: 30px;
+  position: fixed;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   /* height: 36px; */
-  width: 80%;
-  line-height: 36px;
+  border-top: 1px solid slategrey;
+  width: 100%;
+  padding: 0 0 20px;
+  /* line-height: 36px; */
+  background-color: rgb(40, 40, 40);
 }
 .workout-form h5 {
+  /* color: white; */
+  color: lightgreen;
   text-align: center;
 }
 
 .workout-form button {
-  width: calc(40% - 50px);
-  height: 30px;
-  margin-left: 20px;
+  width: calc(40% - 106px);
+  height: 36px;
+  margin: 0 40px 0 20px;
+  border-radius: 5px;
+  background-color: salmon;
+  color: white;
+  border: none;
 }
 
 .workout-form input {
   height: 30px;
   text-align: center;
-  margin-right: 20px;
-  width: 60%;
+  margin: 0 20px 0 40px;
+  width: calc(60% - 20px);
+  display: inline-block;
 }

@@ -1,6 +1,7 @@
 .workouts-container {
-  height: 100vh;
+  max-height: calc(100vh - 120px);
   position: relative;
+  overflow: auto;
 }
 
 .workout-container *:not(.exercise-container) {
