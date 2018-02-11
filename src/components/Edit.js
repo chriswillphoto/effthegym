@@ -11,7 +11,8 @@ class Edit extends Component {
     this.state = {
       showAddForm: false,
       selected: null,
-      exercises: []
+      exercises: [],
+      message: ""
     };
   }
 
@@ -64,7 +65,7 @@ class Edit extends Component {
     });
   }
 
-  resetfields(e) {
+  resetfields(e, name) {
     if (this.state.extype === "sets") {
       e.target.elements["sets"].value = "";
       e.target.elements["reps"].value = "";
@@ -73,8 +74,10 @@ class Edit extends Component {
     }
     this.setState({
       showAddForm: false,
-      selected: null
+      selected: null,
+      message: name + " has been added to your workout"
     });
+    setTimeout(() => {this.setState({message: ""})}, 2000)
   }
 
   addExercise(e, exercise) {
@@ -86,7 +89,7 @@ class Edit extends Component {
     } else {
       exObj.time = parseInt(e.target.elements["time"].value, 10);
     }
-    this.resetfields(e);
+    this.resetfields(e, exercise.name);
     this.props.addExercise({
       workout_id: this.props.workout,
       info: exObj
@@ -131,11 +134,12 @@ class Edit extends Component {
           }}
         >
           <Nav address="/#/workouts" />
+          {this.state.message.length > 0 && <h4 className="confirmation-message">{this.state.message}</h4>}
           {this.exList()}
         </div>
         {this.state.showAddForm && this.addForm(this.state.selected)}
       </div>
-    )
+    );
   }
 }
 
