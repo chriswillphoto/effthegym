@@ -23,6 +23,7 @@ const Workouts = props => {
             <a href="/#/workout/edit" onClick={() => props.selectWorkout(workout.id)}>
               Add Exercises to this Workout
             </a>
+            <button onClick={() => props.deleteWorkout(workout)} >X</button>
           </div>
           {workout.exercises.map(exercise => {
             return (
