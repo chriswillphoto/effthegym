@@ -4,8 +4,7 @@ const workouts = (state = {}, action) => {
       return { ...state, [action.workout.id]: action.workout };
     
     case "DELETE_WORKOUT":
-      // delete state.workouts[action.workout]
-      console.log(state.workouts)
+      delete state[action.workout.id]
       return {...state}
     case "ADD_EXERCISE_TO_WORKOUT":
       let target = [action.exercise.workout_id];

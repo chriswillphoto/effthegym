@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { selectWorkout, deleteExerciseFromWorkout } from "../actions";
+import { selectWorkout, deleteExerciseFromWorkout, deleteWorkout } from "../actions";
 import Workouts from "../components/Workouts";
 
 const mapStateToProps = state => {
@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     deleteWorkout: workout => {
-      dispatch(deleteWorkout(workout))
+      dispatch(deleteWorkout(workout));
     },
     selectWorkout: workout => {
       dispatch(selectWorkout(workout));
