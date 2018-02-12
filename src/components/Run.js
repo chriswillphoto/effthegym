@@ -1,6 +1,7 @@
 import React, { PureComponent as Component } from "react";
 import Nav from "./Nav";
 import ReactCountdownClock from "react-countdown-clock";
+import './Run.css'
 
 class Run extends Component {
   constructor(props) {
@@ -42,16 +43,17 @@ class Run extends Component {
   render() {
     if (this.state.workout.exercises.length > 0 && this.state.workout.exercises[0].sets) {
       return (
-        <div>
+        <div className="run-container">
           <Nav address="/#/workouts" />
-          <h4>{this.state.workout.exercises[0].name}</h4>
-          <h3>sets remaining: {this.state.workout.exercises[0].sets} </h3>
+          <h2>{this.state.workout.exercises[0].name}</h2>
+          <h3>sets remaining:  </h3>
+          <h2> {this.state.workout.exercises[0].sets} </h2>
           <button onClick={() => this.doneSets()}>Done</button>
         </div>
       );
     } else if (this.state.workout.exercises.length > 0 && this.state.workout.exercises[0].time) {
       return (
-        <div>
+        <div className="run-container">
           <Nav address="/#/workouts" />
           <h2>{this.state.workout.exercises[0].name}</h2>
           <ReactCountdownClock
@@ -68,7 +70,7 @@ class Run extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="run-container">
           <Nav address="/#/workouts" />
           <h4 className="complete">You have finished your workout!</h4>
         </div>
