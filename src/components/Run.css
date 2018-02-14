@@ -4,16 +4,17 @@
     background-color: salmon;
 
     text-align: center;
+    position: relative;
 }
 
 canvas {
-    top: 15%;
+    top: 23vh;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .time-button {
     position: absolute;
-    top: 60%;
+    top: 88vh;
     transform: translateX(-50%);
 }
