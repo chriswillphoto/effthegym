@@ -1,13 +1,17 @@
-
 .home a {
   display: block;
-  height: 25vh;
-  line-height: 25vh;
-  background-color: skyblue;
-  color: black;
+  height: 50vh;
+  font-size: 24px;
+  line-height: 50vh;
+  background-color: rgb(40, 40, 40);
+  color: lightgreen;
   text-align: center;
   text-decoration: none;
   width: 100%;
   border: 1px solid slategrey;
-} 
+}
 
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

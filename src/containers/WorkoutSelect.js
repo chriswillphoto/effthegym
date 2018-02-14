@@ -1,23 +1,29 @@
-import {connect} from 'react-redux';
-import {addWorkout} from '../actions';
-import Workouts from '../components/Workouts';
+import { connect } from "react-redux";
+import { selectWorkout, deleteExerciseFromWorkout, deleteWorkout } from "../actions";
+import Workouts from "../components/Workouts";
 
 const mapStateToProps = state => {
   return {
     workouts: state.workouts,
+    selected: state.selected
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddClick: workout => {
-      console.log(workout);
+    deleteWorkout: workout => {
+      dispatch(deleteWorkout(workout));
     },
     selectWorkout: workout => {
-      console.log(workout)
+      dispatch(selectWorkout(workout));
+    },
+    delExercise: (exercise, id) => {
+      exercise.workout_id = id;
+      // console.log(exercise, id)
+      dispatch(deleteExerciseFromWorkout(exercise));
     }
   };
 };
 
 const WorkoutSelect = connect(mapStateToProps, mapDispatchToProps)(Workouts);
-export default WorkoutSelect
+export default WorkoutSelect;

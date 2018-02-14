@@ -1,15 +1,15 @@
-import React from 'react';
-import './Home.css'
+import React from "react";
+import "./Home.css";
 
 const Home = () => {
-  return(
+  return (
     <div className="home">
       <a href="/#/workouts">Workouts</a>
-      <a href="#">Exercise Database</a>
+      <a href="/#/exercises">Exercise Database</a>
       <a href="#">My Profile</a>
       <a href="#">Settings</a>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
