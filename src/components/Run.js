@@ -62,9 +62,9 @@ class Run extends Component {
             paused={this.state.pauseTimer}
           />
           {this.state.pauseTimer ? (
-            <button onClick={() => this.setState({ pauseTimer: false })}>Go</button>
+            <button className="time-button" onClick={() => this.setState({ pauseTimer: false })}>Go</button>
           ) : (
-            <button onClick={() => this.setState({ pauseTimer: true })}>Pause</button>
+            <button className="time-button" onClick={() => this.setState({ pauseTimer: true })}>Pause</button>
           )}
         </div>
       );
