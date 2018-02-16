@@ -25,7 +25,8 @@ class Edit extends Component {
         newState.push({
           id: item,
           name: items[item].name,
-          type: items[item].type
+          type: items[item].type,
+          muscleGroups: items[item].muscleGroups
         });
       }
       this.setState({
@@ -49,6 +50,7 @@ class Edit extends Component {
           }
         >
           <h3>{exercise.name}</h3>
+          <p>Works: <span>{exercise.muscleGroups}</span></p>
           <button
             onClick={() =>
               this.setState({

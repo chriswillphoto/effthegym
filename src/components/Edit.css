@@ -46,15 +46,22 @@
 }
 
 .edit-exercise h3,
-.edit-exercise button {
-  display: inline-block;
+.edit-exercise button,
+.edit-exercise p {
+  display: block;
   margin: 20px 10px;
+  text-align: center;
+}
+
+.edit-exercise p span {
+  margin-left: 20px;
 }
 
 .edit-exercise button {
-  position: absolute;
-  right: 5px;
+  /* position: absolute; */
+  /* right: 5px; */
   cursor: pointer;
+  margin: 0 auto;
 }
 
 .confirmation-message {
