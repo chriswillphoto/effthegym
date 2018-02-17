@@ -28,8 +28,24 @@
 
 .workout-form input {
   height: 30px;
+  line-height: 30px;
   text-align: center;
   margin: 0 20px 0 40px;
   width: calc(60% - 20px);
   display: inline-block;
+}
+
+@media screen and (max-width: 640px) {
+  .workout-form {
+    padding: 0; 
+  }
+  .workout-form h5 {
+    display: none;
+  }
+  .workout-form input, .workout-form button {
+    display: block;
+    margin: 5px auto;
+    width: 60%;
+  }
+
 }
