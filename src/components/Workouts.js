@@ -52,8 +52,7 @@ const Workouts = props => {
       <Nav address="/#/" />
       {workoutlist.length === 0 && (
         <h2 className="empty-header">
-          {" "}
-          You Haven't Created Any Workouts! Add One Below.{" "}
+          You Haven't Created Any Workouts! Add One Below.
         </h2>
       )}
       {workoutlist.length > 0 && listRender(props.workouts)}
