@@ -40,3 +40,17 @@
   display: inline-block;
   margin: 0 20px;
 }
+
+
+@media screen and (max-width: 650px) {
+  .workout-container .workout-buttons * {
+    margin: 0 auto;
+    display: block;
+  }
+  .workout-container .workout-buttons h4 {
+    display: block;
+  }
+  .workout-container .workout-buttons .go-button {
+    display: block;
+  }
+}

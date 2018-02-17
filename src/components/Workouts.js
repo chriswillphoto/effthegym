@@ -17,24 +17,31 @@ const Workouts = props => {
         >
           <div className="workout-buttons">
             <h4>{workout.name}</h4>
-            <a href="/#/workout/run" onClick={() => props.selectWorkout(workout.id)}>
+            <a
+              className="go-button"
+              href="/#/workout/run"
+              onClick={() => props.selectWorkout(workout.id)}
+            >
               Go
             </a>
-            <a href="/#/workout/edit" onClick={() => props.selectWorkout(workout.id)}>
+            {workout.exercises.map(exercise => {
+              return (
+                <div key={uniqid()} className="exercise-container">
+                  <ExerciseInfo
+                    delete={() => props.delExercise(exercise, workout.id)}
+                    exercise={exercise}
+                  />
+                </div>
+              );
+            })}
+            <a
+              href="/#/workout/edit"
+              onClick={() => props.selectWorkout(workout.id)}
+            >
               Add Exercises to this Workout
             </a>
-            <button onClick={() => props.deleteWorkout(workout)} >X</button>
+            <button onClick={() => props.deleteWorkout(workout)}>Delete this workout</button>
           </div>
-          {workout.exercises.map(exercise => {
-            return (
-              <div key={uniqid()} className="exercise-container">
-                <ExerciseInfo
-                  delete={() => props.delExercise(exercise, workout.id)}
-                  exercise={exercise}
-                />
-              </div>
-            );
-          })}
         </div>
       );
     });
@@ -43,9 +50,14 @@ const Workouts = props => {
   return (
     <div className="workouts-container">
       <Nav address="/#/" />
-      {workoutlist.length === 0 && <h2 className="empty-header"> You Haven't Created Any Workouts! Add One Below. </h2>}
+      {workoutlist.length === 0 && (
+        <h2 className="empty-header">
+          {" "}
+          You Haven't Created Any Workouts! Add One Below.{" "}
+        </h2>
+      )}
       {workoutlist.length > 0 && listRender(props.workouts)}
-      <AddWorkout  />
+      <AddWorkout />
     </div>
   );
 };
