@@ -3,22 +3,26 @@
   position: relative;
   overflow: auto;
 }
-
+.workout-container {
+  background-color: rgb(200, 200, 200);
+  padding-bottom: 10px;
+  border-bottom: 4px solid lightgreen;
+}
 .workout-container *:not(.exercise-container) {
-  display: inline-block;
-  margin: 0;
+  display: block;
+  margin: 0 auto;
 }
 
 .workout-buttons {
   position: relative;
   width: 100%;
-  height: 40px;
+  /* height: 40px; */
   line-height: 40px;
   text-align: center;
 }
 
 .workout-container .workout-buttons * {
-  margin: 0 20px;
+  margin: 0 auto;
 }
 
 /*.workout-buttons a {
@@ -27,7 +31,7 @@
   transform: translateX(-50%);
 } */
 .empty {
-  display: none!important;
+  display: none !important;
 }
 
 .empty-header {
@@ -44,8 +48,25 @@
 
 .workout-container .exercise-container * {
   display: inline-block;
+  margin: 5px 10px;
 }
 
+.info {
+  width: 30%;
+  height: 40px;
+  border: 1px solid rgb(40, 40, 40);
+  border-radius: 5px;
+  background: none;
+}
+
+.delete-workout {
+  width: 30%;
+  height: 40px;
+  border: 1px solid rgb(40, 40, 40);
+  border-radius: 5px;
+  background: white;
+  color: salmon;
+}
 
 @media screen and (max-width: 650px) {
   .workout-container .workout-buttons * {
@@ -58,7 +79,18 @@
   .workout-container .workout-buttons .go-button {
     display: block;
   }
-  .exercise-container {
+  .workout-container .exercise-container {
     padding: 0;
+    border: none;
+  }
+
+  .workout-container .exercise-container *,
+  .workout-container .exercise-container h4 {
+    display: inline-block;
+    margin: 4px 8px;
+  }
+
+  .exercise-container * {
+    font-size: 80%;
   }
 }

@@ -1,20 +1,27 @@
 .run-container {
-    height: 100vh;
-    width: 100vw;
-    background-color: salmon;
+  height: 100vh;
+  width: 100vw;
+  /* background-color: salmon; */
 
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
 }
 
 canvas {
-    top: 23vh;
-    left: 50%;
-    transform: translateX(-50%);
+  top: 23vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.time-button {
-    position: absolute;
-    top: 88vh;
-    transform: translateX(-50%);
+.time-button, .sets-button {
+  position: absolute;
+  top: 88vh;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 40px;
+  background-color: salmon;
+  color: white;
+  border-radius: 5px;
 }
+
+

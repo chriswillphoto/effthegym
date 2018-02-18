@@ -23,6 +23,8 @@ export default class Workout extends Component {
           <h4>{workout.name}</h4>
           <button className="info" onClick={() => this.setState({showInfo: !this.state.showInfo})}>{this.state.showInfo ? "Hide Info" : "Show Info"}</button>
 
+          {this.state.showInfo && workout.exercises.length === 0 && <h6>You haven't added any exercises to this workout</h6>}
+
           {this.state.showInfo && (
             <ol className={"exercise-container" + (workout.exercises.length === 0 ? " empty" : "")}>
               {workout.exercises.map(exercise => {
@@ -46,7 +48,7 @@ export default class Workout extends Component {
           <a href="/#/workout/edit" onClick={() => this.props.select(workout.id)}>
             Add Exercises to this Workout
           </a>
-          <button onClick={() => this.props.deleteWorkout(workout)}>Delete this Workout</button>
+          <button className="delete-workout"  onClick={() => this.props.deleteWorkout(workout)}>Delete this Workout</button>
         </div>
       </div>
     );

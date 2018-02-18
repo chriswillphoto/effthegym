@@ -15,7 +15,7 @@
 }
 
 .addform {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -39,6 +39,7 @@
   margin: 0 auto;
   cursor: pointer;
   position: relative;
+  padding: 10px 0;
 }
 
 .edit-exercise:hover {

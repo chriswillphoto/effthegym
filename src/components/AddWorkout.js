@@ -12,7 +12,7 @@ let AddWorkout = ({dispatch}) => {
       e.target.elements['name'].value = ""
     }}>
       <h5>Add New Workout</h5>
-      <input name="name" type="text"  placeholder="Workout Name"/>
+      <input name="name" type="text"  placeholder="Workout Name" required/>
       <button>Add</button> 
     </form>
   )

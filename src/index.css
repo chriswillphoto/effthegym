@@ -3,11 +3,13 @@
 * {
   border-collapse: collapse;
   box-sizing: border-box;
+  overscroll-behaviour-y: none;
 }
 body {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+  background-color: rgb(220,220,220);
 }
 .nav {
   height: 30px;

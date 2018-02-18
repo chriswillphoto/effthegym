@@ -48,7 +48,7 @@ class Run extends Component {
           <h2>{this.state.workout.exercises[0].name}</h2>
           <h3>sets remaining:  </h3>
           <h2> {this.state.workout.exercises[0].sets} </h2>
-          <button onClick={() => this.doneSets()}>Done</button>
+          <button className="sets-button"  onClick={() => this.doneSets()}>Done</button>
         </div>
       );
     } else if (this.state.workout.exercises.length > 0 && this.state.workout.exercises[0].time) {
