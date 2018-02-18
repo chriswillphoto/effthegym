@@ -5,6 +5,8 @@
 
   text-align: center;
   position: relative;
+  background-color: rgb(40, 40, 40);
+  color: white;
 }
 
 canvas {
@@ -13,7 +15,8 @@ canvas {
   transform: translateX(-50%);
 }
 
-.time-button, .sets-button {
+.time-button,
+.sets-button {
   position: absolute;
   top: 88vh;
   transform: translateX(-50%);
@@ -23,5 +26,3 @@ canvas {
   color: white;
   border-radius: 5px;
 }
-
-

@@ -57,6 +57,7 @@ class Run extends Component {
           <Nav address="/#/workouts" />
           <h2>{this.state.workout.exercises[0].name}</h2>
           <ReactCountdownClock
+            color={"lightgreen"}
             seconds={this.state.workout.exercises[0].time}
             onComplete={() => this.doneTime()}
             paused={this.state.pauseTimer}
