@@ -21,6 +21,7 @@ export default class Workout extends Component {
       >
         <div className="workout-buttons">
           <h4>{workout.name}</h4>
+          <button className="info" onClick={() => this.setState({showInfo: !this.state.showInfo})}>{this.state.showInfo ? "Hide Info" : "Show Info"}</button>
 
           {this.state.showInfo && (
             <ol className={"exercise-container" + (workout.exercises.length === 0 ? " empty" : "")}>
