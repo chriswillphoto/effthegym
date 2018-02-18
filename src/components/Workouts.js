@@ -24,16 +24,16 @@ const Workouts = props => {
             >
               Go
             </a>
+            <ol className={"exercise-container" + (workout.exercises.length === 0 ? " empty": "")}>
             {workout.exercises.map(exercise => {
               return (
-                <div key={uniqid()} className="exercise-container">
                   <ExerciseInfo
                     delete={() => props.delExercise(exercise, workout.id)}
                     exercise={exercise}
                   />
-                </div>
               );
             })}
+            </ol>
             <a
               href="/#/workout/edit"
               onClick={() => props.selectWorkout(workout.id)}

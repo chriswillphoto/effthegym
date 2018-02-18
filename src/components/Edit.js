@@ -50,7 +50,9 @@ class Edit extends Component {
           }
         >
           <h3>{exercise.name}</h3>
-          <p>Works: <span>{exercise.muscleGroups}</span></p>
+          <p>
+            Works: <span>{exercise.muscleGroups}</span>
+          </p>
           <button
             onClick={() =>
               this.setState({
@@ -79,7 +81,9 @@ class Edit extends Component {
       selected: null,
       message: name + " has been added to your workout"
     });
-    setTimeout(() => {this.setState({message: ""})}, 2000)
+    setTimeout(() => {
+      this.setState({ message: "" });
+    }, 2000);
   }
 
   addExercise(e, exercise) {
@@ -136,7 +140,9 @@ class Edit extends Component {
           }}
         >
           <Nav address="/#/workouts" />
-          {this.state.message.length > 0 && <h4 className="confirmation-message">{this.state.message}</h4>}
+          {this.state.message.length > 0 && (
+            <h4 className="confirmation-message">{this.state.message}</h4>
+          )}
           {this.exList()}
         </div>
         {this.state.showAddForm && this.addForm(this.state.selected)}

@@ -26,19 +26,24 @@
   right: 0;
   transform: translateX(-50%);
 } */
+.empty {
+  display: none!important;
+}
 
 .empty-header {
   text-align: center;
 }
 
-.exercise-container {
+.workout-container .exercise-container {
   border: 1px solid grey;
   text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .workout-container .exercise-container * {
   display: inline-block;
-  margin: 0 20px;
 }
 
 
@@ -52,5 +57,8 @@
   }
   .workout-container .workout-buttons .go-button {
     display: block;
+  }
+  .exercise-container {
+    padding: 0;
   }
 }
