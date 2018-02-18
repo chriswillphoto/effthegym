@@ -6,8 +6,8 @@ const Home = () => {
     <div className="home">
       <a href="/#/workouts">Workouts</a>
       <a href="/#/exercises">Exercise Database</a>
-      <a href="#">My Profile</a>
-      <a href="#">Settings</a>
+      <a href="/#/404">My Profile</a>
+      <a href="/#/404">Settings</a>
     </div>
   );
 };

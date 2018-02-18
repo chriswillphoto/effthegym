@@ -6,6 +6,7 @@ import WorkoutSelect from "./containers/WorkoutSelect";
 import WorkoutEditor from "./containers/WorkoutEditor";
 import WorkoutRunner from "./containers/WorkoutRunner";
 import ExerciseList from "./components/ExerciseList";
+import FourOhFour from './components/404'
 
 const Routes = ({ store }) => (
   <Provider store={store}>
@@ -17,6 +18,7 @@ const Routes = ({ store }) => (
           <Route exact path="/workout/edit" component={WorkoutEditor} />
           <Route exact path="/workout/run" component={WorkoutRunner} />
           <Route exact path="/exercises" component={ExerciseList} />
+          <Route exact path="/404" component={FourOhFour} />
         </Switch>
       </div>
     </Router>
