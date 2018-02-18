@@ -8,7 +8,8 @@ export default class ExerciseList extends Component {
     super(props);
 
     this.state = {
-      exercises: []
+      exercises: [],
+      loading: true
     };
   }
 
@@ -24,7 +25,8 @@ export default class ExerciseList extends Component {
         });
       }
       this.setState({
-        exercises: newState
+        exercises: newState,
+        loading: false
       });
     });
   }
@@ -40,6 +42,7 @@ export default class ExerciseList extends Component {
       <div>
         <Nav address="/#/" />
         <ul>{this.populateList()}</ul>
+        {this.state.loading && <h2>Loading Exercises...</h2>}
       </div>
     );
   }

@@ -2,7 +2,6 @@ import React from "react";
 import AddWorkout from "./AddWorkout";
 import "./Workouts.css";
 import Nav from "./Nav";
-import ExerciseInfo from "./ExerciseInfo";
 import uniqid from "uniqid";
 import Workout from './Workout'
 

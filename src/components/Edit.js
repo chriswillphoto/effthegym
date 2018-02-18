@@ -12,7 +12,8 @@ class Edit extends Component {
       showAddForm: false,
       selected: null,
       exercises: [],
-      message: ""
+      message: "",
+      loading: true
     };
   }
 
@@ -30,7 +31,8 @@ class Edit extends Component {
         });
       }
       this.setState({
-        exercises: newState
+        exercises: newState,
+        loading: false
       });
     });
   }
@@ -81,9 +83,9 @@ class Edit extends Component {
       selected: null,
       message: name + " has been added to your workout"
     });
-    setTimeout(() => {
-      this.setState({ message: "" });
-    }, 2000);
+    // setTimeout(() => {
+    //   this.setState({ message: "" });
+    // }, 2000);
   }
 
   addExercise(e, exercise) {
@@ -140,6 +142,7 @@ class Edit extends Component {
           }}
         >
           <Nav address="/#/workouts" />
+          {this.state.loading && <h2>Loading Exercises...</h2>}
           {this.state.message.length > 0 && (
             <h4 className="confirmation-message">{this.state.message}</h4>
           )}

@@ -21,6 +21,20 @@ export default class Workout extends Component {
       >
         <div className="workout-buttons">
           <h4>{workout.name}</h4>
+
+          {this.state.showInfo && (
+            <ol className={"exercise-container" + (workout.exercises.length === 0 ? " empty" : "")}>
+              {workout.exercises.map(exercise => {
+                return (
+                  <ExerciseInfo
+                    key={uniqid()}
+                    delete={() => this.props.delExercise(exercise, workout.id)}
+                    exercise={exercise}
+                  />
+                );
+              })}
+            </ol>
+          )}
           <a
             className="go-button"
             href="/#/workout/run"
@@ -28,17 +42,6 @@ export default class Workout extends Component {
           >
             Go
           </a>
-          <ol className={"exercise-container" + (workout.exercises.length === 0 ? " empty" : "")}>
-            {workout.exercises.map(exercise => {
-              return (
-                <ExerciseInfo
-                  key={uniqid()}
-                  delete={() => this.props.delExercise(exercise, workout.id)}
-                  exercise={exercise}
-                />
-              );
-            })}
-          </ol>
           <a href="/#/workout/edit" onClick={() => this.props.select(workout.id)}>
             Add Exercises to this Workout
           </a>
