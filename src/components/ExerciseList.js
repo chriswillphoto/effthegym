@@ -15,20 +15,31 @@ export default class ExerciseList extends Component {
 
   componentDidMount() {
     const itemsRef = firebase.database().ref("exercises");
-    itemsRef.on("value", snapshot => {
-      let items = snapshot.val();
-      let newState = [];
-      for (let item in items) {
-        newState.push({
-          id: item,
-          name: items[item].name
+    if (!localStorage.getItem("eff-the-gym-exercise-list")) {
+      const itemsRef = firebase.database().ref("exercises");
+      itemsRef.on("value", snapshot => {
+        let items = snapshot.val();
+        let newState = [];
+        for (let item in items) {
+          newState.push({
+            id: item,
+            name: items[item].name,
+            type: items[item].type,
+            muscleGroups: items[item].muscleGroups
+          });
+        }
+        this.setState({
+          exercises: newState,
+          loading: false
         });
-      }
+        localStorage.setItem("eff-the-gym-exercise-list", JSON.stringify(newState));
+      });
+    } else {
       this.setState({
-        exercises: newState,
+        exercises: JSON.parse(localStorage.getItem("eff-the-gym-exercise-list")),
         loading: false
       });
-    });
+    }
   }
 
   populateList() {
