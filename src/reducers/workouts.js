@@ -5,6 +5,7 @@ const workouts = (state = {}, action) => {
     
     case "DELETE_WORKOUT":
       delete state[action.workout.id]
+      localStorage.setItem('eff-the-gym-workout-state', JSON.stringify(state))
       return {...state}
 
     case "ADD_EXERCISE_TO_WORKOUT":
@@ -27,6 +28,8 @@ const workouts = (state = {}, action) => {
         exercises: newEx
       };
 
+      localStorage.setItem('eff-the-gym-workout-state', JSON.stringify(state))
+
       return { ...state };
 
     case "FETCH_WORKOUT_FROM_LOCALSTORAGE":
@@ -34,7 +37,7 @@ const workouts = (state = {}, action) => {
         const savedWorkouts = JSON.parse( localStorage.getItem('eff-the-gym-workout-state') )
         return {...savedWorkouts}
       }else{
-        return state
+        return state;
       }
 
     default:
