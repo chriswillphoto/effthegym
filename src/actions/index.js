@@ -40,3 +40,9 @@ export const deleteExerciseFromWorkout = exercise => {
     exercise
   };
 };
+
+export const fetchWorkoutsFromLocal = () => {
+  return {
+    type: "FETCH_WORKOUT_FROM_LOCALSTORAGE"
+  };
+};

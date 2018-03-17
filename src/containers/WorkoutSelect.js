@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { selectWorkout, deleteExerciseFromWorkout, deleteWorkout } from "../actions";
+import { selectWorkout, deleteExerciseFromWorkout, deleteWorkout, fetchWorkoutsFromLocal } from "../actions";
 import Workouts from "../components/Workouts";
 
 const mapStateToProps = state => {
@@ -21,6 +21,9 @@ const mapDispatchToProps = dispatch => {
       exercise.workout_id = id;
       // console.log(exercise, id)
       dispatch(deleteExerciseFromWorkout(exercise));
+    },
+    fetchWorkouts: () => {
+      dispatch(fetchWorkoutsFromLocal());
     }
   };
 };

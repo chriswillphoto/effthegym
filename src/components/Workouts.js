@@ -1,30 +1,41 @@
-import React from "react";
+import React, {PureComponent as Component} from "react";
 import AddWorkout from "./AddWorkout";
 import "./Workouts.css";
 import Nav from "./Nav";
 import uniqid from "uniqid";
 import Workout from './Workout'
 
-const Workouts = props => {
-  const workoutlist = Object.keys(props.workouts);
-  const listRender = function(prop) {
+class Workouts extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  componentDidMount() {
+    this.props.fetchWorkouts()
+  }
+
+  workoutlistLength(){ return Object.keys(this.props.workouts).length; }
+
+  listRender(prop) { 
     return Object.values(prop).map(workout => {
-      return <Workout key={uniqid()} deleteWorkout={props.deleteWorkout} workout={workout} select={props.selectWorkout} delExercise={props.delExercise}/>
+      return <Workout key={uniqid()} deleteWorkout={this.props.deleteWorkout} workout={workout} select={this.props.selectWorkout} delExercise={this.props.delExercise}/>
     });
   };
 
-  return (
-    <div className="workouts-container">
-      <Nav address="/#/" />
-      {workoutlist.length === 0 && (
-        <h2 className="empty-header">
-          You Haven't Created Any Workouts! Add One Below.
-        </h2>
-      )}
-      {workoutlist.length > 0 && listRender(props.workouts)}
-      <AddWorkout />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="workouts-container">
+        <Nav address="/#/" />
+        {this.workoutlistLength() === 0 && (
+          <h2 className="empty-header">
+            You Haven't Created Any Workouts! Add One Below.
+          </h2>
+        )}
+        {this.workoutlistLength() > 0 && this.listRender(this.props.workouts)}
+        <AddWorkout />
+      </div>
+    );
+  };
+}
 
 export default Workouts;
