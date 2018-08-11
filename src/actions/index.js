@@ -7,6 +7,7 @@ import {
 } from "./actionTypes";
 
 export const addWorkout = workout => {
+  console.log('test')
   return {
     type: ADD_WORKOUT,
     workout
